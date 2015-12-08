@@ -28,6 +28,6 @@ with open("input") as file:
             i += 2
             x, y = parse(santa_c, x, y)
             rx, ry = parse(robo_c, rx, ry)
-        if rem != 0:
+        if rem != "":
             x, y = parse(rem, x, y)
     print("{} houses received at least 1 present.".format(len(houses)))
