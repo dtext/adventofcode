@@ -2,13 +2,13 @@
 import re
 
 # grid of 1000x1000 lamps
-grid = [[False for i in range(1000)] for j in range(1000)]
+grid = [[0 for i in range(1000)] for j in range(1000)]
 pattern = re.compile(r"(turn on|toggle|turn off) (\d+),(\d+) through (\d+),(\d+)")
 
 cmd_fn = {
-    "turn on": lambda v: True,
-    "turn off": lambda v: False,
-    "toggle": lambda v: not v
+    "turn on": lambda v: v + 1,
+    "turn off": lambda v: 0 if v == 0 else v - 1,
+    "toggle": lambda v: v + 2
 }
 
 
@@ -34,11 +34,11 @@ def adventofcode6():
             # parse input and apply Santa's instructions
             (start, end, cmd) = parse(line)
             apply_to_grid(cmd_fn[cmd], start, end)
-        # count lamps that are on
+        # count total brightness
         on = 0
         for i in range(1000):
             for j in range(1000):
-                on += int(grid[i][j])
+                on += grid[i][j]
         return on
 
 if __name__ == "__main__":
