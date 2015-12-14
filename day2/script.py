@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 
 import re
-pattern = "(\d+)x(\d+)x(\d+)"
+pattern = re.compile(r"(\d+)x(\d+)x(\d+)")
 
 paper = 0
 ribbon = 0
 
 with open("input") as file:
     for line in file:
-        m = re.search(pattern, line)
+        m = pattern.search(line)
         l, w, h = int(m.group(1)), int(m.group(2)), int(m.group(3))
         # calculate paper area
         a, b, c = l*w, w*h, h*l

@@ -10,8 +10,8 @@ def adventofcode4(startswith="00000", _input="iwrupvqb"):
         myhash = h(hashthis.encode("utf-8")).hexdigest()
     return number, myhash
 
-_input = "iwrupvqb"
-fivezeros = adventofcode4("00000", _input)
-print("The secret number is {0}. md5({1}{0}) = {2}".format(fivezeros[0], _input, fivezeros[1]))
-sixzeros = adventofcode4("000000", _input)
-print("The secret number is {0}. md5({1}{0}) = {2}".format(sixzeros[0], _input, sixzeros[1]))
+data = "iwrupvqb"
+fivezeros = adventofcode4("00000", data)
+print("The secret number is {0}. md5({1}{0}) = {2}".format(fivezeros[0], data, fivezeros[1]))
+sixzeros = adventofcode4("000000", data)
+print("The secret number is {0}. md5({1}{0}) = {2}".format(sixzeros[0], data, sixzeros[1]))

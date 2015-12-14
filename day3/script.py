@@ -1,8 +1,8 @@
-houses = set()
 x, y = 0, 0
 rx, ry = 0, 0
 houses = set()
 houses.add((0, 0))
+
 
 def parse(c, tx, ty):
     if c == ">":
